@@ -51,7 +51,7 @@ class TasksController extends Controller
     // putまたはpatchでtasks/（任意のid）にアクセスされた場合の「更新処理」
     public function update(Request $request, $id)
     {
-        $request->validate(['content'=>'required'],['status'=>'required|max:10']);
+        $request->validate(['content'=>'required','status'=>'required|max:10']);
         
         $task = Task::findOrFail($id);
         $task->content = $request->content;
